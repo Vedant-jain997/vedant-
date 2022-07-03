@@ -1,0 +1,100 @@
+1.Print number in increasing and decreasing order:
+#include<iostream>
+#include<algorithm>
+#include<string>
+using namespace std;
+    void  decur(int n){
+        if(n==1){
+            cout<<"1"<<endl;
+            return ;
+        }
+        cout<<n<<endl;
+        decur(n-1);
+    }
+    void recur(int n){
+           if(n==1){
+            cout<<"1"<<endl;
+            return ;
+        }
+        recur(n-1);
+        cout<<n<<endl;
+    }
+   
+int main(){
+    int n;
+    cin>>n;
+    decur(n);
+    recur(n);
+ 
+ 
+}
+
+2.Find first and last occurrence of a number in an array:
+#include<iostream>
+#include<algorithm>
+#include<string>
+using namespace std;
+int  occur(int arr[],int n,int i,int key){
+    if(i==n){
+        return -1;
+    }
+   if(arr[i]==key){
+    return i;
+   }
+   
+   return occur(arr,n,i+1,key);
+}
+int recur(int arr[],int n,int i,int key){
+     if(i==n){
+        return -1;
+    }
+  int rec=recur(arr,n,i+1,key);
+  if(rec!=-1){
+    return rec;
+  }
+ 
+  if(arr[i]==key){
+    return i;
+  }
+  else{
+ return -1;
+  }
+ 
+}
+int main(){
+    int arr[]={4,2,1,2,5,2,7};
+    cout<<occur(arr,7,0,2)<<endl;
+    cout<<recur(arr,7,0,2)<<endl;
+   return 0;
+ 
+}
+
+3.replace pi with 3.14 in string “pippxxppiixipi”:
+
+#include<iostream>
+#include<algorithm>
+#include<string>
+using namespace std;
+ void pi(string str){
+ if(str.length()==0){
+  return ;
+ }
+ 
+  if(str[0]=='p' && str[1]=='i'){
+   cout<<"3.14";
+   pi(str.substr(2));
+  }
+  else{
+    cout<<str[0];
+    pi(str.substr(1));
+  }
+ 
+ }
+ 
+int main(){
+  string str="pippxxppiixipi";
+ 
+  pi(str);
+   return 0;
+ 
+}
